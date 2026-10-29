@@ -1,0 +1,18 @@
+type = "static-library"
+name = "zstd"
+standards = ["C11"]
+
+[includes]
+private = ["src/common"]
+
+[defines]
+private = ["ZSTD_MULTITHREAD", "ZSTD_DISABLE_ASM", "ZSTD_LEGACY_SUPPORT=0"]
+
+[linux]
+libraries = ["pthread"]
+
+[linux.defines]
+private = ["_GNU_SOURCE"]
+
+[macos]
+libraries = ["pthread"]
